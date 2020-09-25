@@ -1,6 +1,12 @@
 <div fxLayout="row layout-wrap" fxFlex="auto">
-  <div class="month" fxLayoutAlign="center top" fxFlex="100">
+  <div class="month" fxLayoutAlign="center top" fxFlex="20">
+    <span (click)="prevMonth()"><</span>
+     </div>
+  <div class="month" fxLayoutAlign="center top" fxFlex="60">
     {{ navDate.format("MMMM") }}
+  </div>
+  <div class="month" fxLayoutAlign="center top" fxFlex="20">
+    <span (click)="nextMonth()">></span>
   </div>
   <div
     *ngFor="let weekday of weekDaysHeaderArr"

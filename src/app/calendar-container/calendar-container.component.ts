@@ -19,7 +19,7 @@ export class CalendarContainerComponent implements OnInit {
   localeString: string = 'de';
 
   weekDaysHeaderArr: Array<string> = [];
-  calendardays: any[] = [];
+  calendardays: Array<any> = [];
 
   ngOnInit(): void {
     moment.locale(this.localeString);
@@ -82,5 +82,17 @@ export class CalendarContainerComponent implements OnInit {
         this.calendardays.push(i);
       }
     }
+  }
+
+  prevMonth(){
+    this.navDate.subtract(1,'months');    
+    this.calendardays = [];
+    this.getCalendarDays();
+  }
+
+  nextMonth(){
+    this.navDate.add(1,'months');    
+    this.calendardays = [];
+    this.getCalendarDays();
   }
 }

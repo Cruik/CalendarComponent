@@ -8,6 +8,7 @@ import { CalendarContainerComponent } from './calendar-container/calendar-contai
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'ngx-moment';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MomentModule } from 'ngx-moment';
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    MomentModule
+    MomentModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
