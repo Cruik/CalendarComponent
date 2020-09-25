@@ -1,0 +1,21 @@
+<div fxLayout="row layout-wrap" fxFlex="auto">
+  <div class="month" fxLayoutAlign="center top" fxFlex="100">
+    {{ navDate.format("MMMM") }}
+  </div>
+  <div
+    *ngFor="let weekday of weekDaysHeaderArr"
+    class="weekday"
+    fxFlex="14.2%"
+    fxLayoutAlign="center center"
+  >
+    {{ weekday }}
+  </div>
+  <div
+    *ngFor="let day of calendardays"
+    class="day"
+    fxFlex="14.2%"
+    fxLayoutAlign="center center"
+  >
+    {{ day }}
+  </div>
+</div>
