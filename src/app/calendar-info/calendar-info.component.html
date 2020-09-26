@@ -1,1 +1,8 @@
-<p>calendar-info works!</p>
+<div *ngIf="calendarEntry != null">
+  <div>
+    {{ calendarEntry.date | amDateFormat: "Do" }}
+  </div>
+  <div class="day-text">
+    {{ calendarEntry.text }}
+  </div>
+</div>

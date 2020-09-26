@@ -23,7 +23,7 @@
     fxLayoutAlign="center center"
     [ngClass]="{'anotherMonth' : !day.isActualMonth}"
   >
-  <div class="" fxLayout="row layout-wrap" fxFlex="auto">
+  <div class="" fxLayout="row layout-wrap" fxFlex="auto" (click)="onDaySelected(day)">
     <div fxFill fxLayoutAlign="center center">
       {{ day.date  | amDateFormat:'Do'}}
     </div>

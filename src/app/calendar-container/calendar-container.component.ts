@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output,EventEmitter, OnInit } from '@angular/core';  
 import * as moment from 'moment';
 import {CalendarEntry} from '../models/CalendarEntry';
 
@@ -9,6 +9,8 @@ import {CalendarEntry} from '../models/CalendarEntry';
 })
 export class CalendarContainerComponent implements OnInit {
   @Input() date: Date;
+  @Output() selectedEntry:EventEmitter<CalendarEntry>= new EventEmitter(); 
+  
   navDate: moment.Moment;
 
   constructor() {
@@ -130,5 +132,10 @@ export class CalendarContainerComponent implements OnInit {
     this.navDate.add(1, 'months');
     this.calendarEntries = [];
     this.getCalendarDays();
+  }
+
+  onDaySelected(calendarEntry:CalendarEntry){
+    console.log(calendarEntry);
+    this.selectedEntry.emit(calendarEntry);
   }
 }
