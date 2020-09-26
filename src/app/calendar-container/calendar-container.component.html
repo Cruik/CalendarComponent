@@ -1,27 +1,34 @@
-<div fxLayout="row layout-wrap" fxFlex="auto">
-  <div class="month" fxLayoutAlign="center top" fxFlex="20">
-    <span (click)="prevMonth()"><</span>
-     </div>
-  <div class="month" fxLayoutAlign="center top" fxFlex="60">
+<div class="container-calendar" fxLayout="row layout-wrap" fxFlex="auto">
+  <div class="month control" fxLayoutAlign="center center" fxFlex="20" (click)="prevMonth()">
+    <span><</span>
+  </div>
+  <div class="month" fxLayoutAlign="center center" fxFlex="60">
     {{ navDate.format("MMMM") }}
   </div>
-  <div class="month" fxLayoutAlign="center top" fxFlex="20">
-    <span (click)="nextMonth()">></span>
+  <div class="month control" fxLayoutAlign="center center" fxFlex="20" (click)="nextMonth()">
+    <span >></span>
   </div>
   <div
     *ngFor="let weekday of weekDaysHeaderArr"
     class="weekday"
-    fxFlex="14.2%"
+    fxFlex="14.285%"
     fxLayoutAlign="center center"
   >
     {{ weekday }}
   </div>
   <div
-    *ngFor="let day of calendardays"
+    *ngFor="let day of calendarEntries"
     class="day"
-    fxFlex="14.2%"
+    fxFlex="14.285%"
     fxLayoutAlign="center center"
+    [ngClass]="{'anotherMonth' : !day.isActualMonth}"
   >
-    {{ day }}
+  <div class="" fxLayout="row layout-wrap" fxFlex="auto">
+    <div fxFill fxLayoutAlign="center center">
+      {{ day.date  | amDateFormat:'Do'}}
+    </div>
+    <div *ngIf="day.text != null" fxFill fxLayoutAlign="center center" class="day-text">
+      {{day.text}}
+    </div>
   </div>
 </div>

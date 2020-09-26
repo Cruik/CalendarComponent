@@ -1,0 +1,43 @@
+/* HEX */
+/* Kontraste */
+$myColor-1: #246e66; // Deep Cerulean
+$myColor-2: #005f70; // Blue Stone
+$myColor-3: #68a29c; // Onahau
+$myColor-4: #80ebff; // Anakiwa
+$myColor-5: #ad3841; // Blaze Orange
+$myColor-6: #b18739; // Rose of Sharon
+$myColor-7: #ffdbbf; // Negroni
+$myColor-8: #ffb780; // Macaroni and Cheese
+
+$base-height: 70px;
+$month-height: 100px;
+
+.container-calendar {
+  .anotherMonth {
+    background-color: grey;
+  }
+
+  .month {
+    height: $month-height;
+    background-color: $myColor-1;
+  }
+  .control {
+    color: $myColor-3;
+    cursor: pointer;
+  }
+  .weekday {
+    height: $base-height;
+    background-color: $myColor-4;
+    border: 1px $myColor-2 solid;
+  }
+
+  .day {
+    height: $base-height;
+    border: 1px $myColor-6 solid;
+    cursor: pointer;
+
+    .day-text{
+      font-size: 0.6em;
+    }
+  }
+}

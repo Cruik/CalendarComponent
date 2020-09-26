@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import {CalendarEntry} from '../models/CalendarEntry';
 
 @Component({
   selector: 'app-calendar-container',
@@ -19,7 +20,7 @@ export class CalendarContainerComponent implements OnInit {
   localeString: string = 'de';
 
   weekDaysHeaderArr: Array<string> = [];
-  calendardays: Array<any> = [];
+  calendarEntries: Array<CalendarEntry> = [];
 
   ngOnInit(): void {
     moment.locale(this.localeString);
@@ -36,6 +37,9 @@ export class CalendarContainerComponent implements OnInit {
   }
 
   getCalendarDays() {
+    const month = moment(this.navDate).month();
+    const year =  moment(this.navDate).year();
+
     const firstDayDate = moment(this.navDate).startOf('month');
     const initialEmptyCell = firstDayDate.weekday();
 
@@ -47,7 +51,15 @@ export class CalendarContainerComponent implements OnInit {
     this.getPrevMonthCalendarDays(firstDayDate, initialEmptyCell);
 
     for (let i = 1; i <= daysInMonth; i++) {
-      this.calendardays.push(i);
+      var entry : CalendarEntry = {
+        date: moment(new Date(year,month,i)),
+        color: null,
+        text: null,
+        events: [],
+        isActualMonth:true
+      };
+
+      this.calendarEntries.push(entry);
     }
 
     this.getNextMonthCalendarDays(firstDayDate, lastEmptyCells);
@@ -58,14 +70,27 @@ export class CalendarContainerComponent implements OnInit {
     startDayPrevMonth: number
   ) {
     if (startDayPrevMonth > 0) {
-      const lastMonthDate = moment(actualMonth).subtract(
-        startDayPrevMonth,
-        'days'
-      );
+      const lastMonthDate = moment(actualMonth).subtract(startDayPrevMonth, 'days');
+      
+      const month = moment(lastMonthDate).month();
+      const year =  moment(lastMonthDate).year();
+
       const daysInPrevMonth = lastMonthDate.daysInMonth();
 
+
       for (let i = lastMonthDate.date(); i <= daysInPrevMonth; i++) {
-        this.calendardays.push(i);
+        console.log(month);
+        console.log(i);
+
+        var entry : CalendarEntry = {
+          date: moment(new Date(year,month,i)),
+          color: null,
+          text: 'F'+i,
+          events: [],
+          isActualMonth:false
+        };
+  
+        this.calendarEntries.push(entry);
       }
     }
   }
@@ -76,23 +101,34 @@ export class CalendarContainerComponent implements OnInit {
   ) {
 
     if (endDayPrevMonth > 0) {
-      const nextMonthDate = moment(actualMonth).add(endDayPrevMonth,'days');
+      const nextMonthDate = moment(actualMonth).add(endDayPrevMonth, 'days');
+
+      const month = moment(nextMonthDate).month() + 1;
+      const year =  moment(nextMonthDate).year();
 
       for (let i = 1; i <= endDayPrevMonth; i++) {
-        this.calendardays.push(i);
+        var entry : CalendarEntry = {
+          date: moment(new Date(year,month,i)),
+          color: null,
+          text: null,
+          events: [],
+          isActualMonth:false
+        };
+  
+        this.calendarEntries.push(entry);
       }
     }
   }
 
-  prevMonth(){
-    this.navDate.subtract(1,'months');    
-    this.calendardays = [];
+  prevMonth() {
+    this.navDate.subtract(1, 'months');
+    this.calendarEntries = [];
     this.getCalendarDays();
   }
 
-  nextMonth(){
-    this.navDate.add(1,'months');    
-    this.calendardays = [];
+  nextMonth() {
+    this.navDate.add(1, 'months');
+    this.calendarEntries = [];
     this.getCalendarDays();
   }
 }

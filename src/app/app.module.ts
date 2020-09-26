@@ -10,6 +10,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'ngx-moment';
 import {MatIconModule} from '@angular/material/icon'
 
+import { MomentPipe } from './tools/momentPipe';
+
 @NgModule({
   declarations: [
     AppComponent,
