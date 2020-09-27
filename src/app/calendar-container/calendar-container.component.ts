@@ -19,13 +19,11 @@ export class CalendarContainerComponent implements OnInit {
     }
   }
 
-  localeString: string = 'de';
 
   weekDaysHeaderArr: Array<string> = [];
   calendarEntries:Array<CalendarEntry> = [];
 
   ngOnInit(): void {
-    moment.locale(this.localeString);
     this.navDate = moment(this.date);
     this.createWeekdayHeader();
     this.getCalendarDays();
@@ -138,7 +136,7 @@ export class CalendarContainerComponent implements OnInit {
     let result = true;
     
     if (day != null) {
-      result = !day.isActualMonth;
+      result = !day.isActualMonth; 
     }
 
     return result;

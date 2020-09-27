@@ -8,9 +8,10 @@ import { CalendarContainerComponent } from './calendar-container/calendar-contai
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MomentModule } from 'ngx-moment';
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon'
 
 import { MomentPipe } from './tools/momentPipe';
+import * as moment from 'moment';
 
 @NgModule({
   declarations: [
@@ -28,4 +29,12 @@ import { MomentPipe } from './tools/momentPipe';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  localeString: string = 'de';
+
+  constructor() {
+
+    moment.locale(this.localeString);
+  }
+}

@@ -1,42 +1,20 @@
- 
- .info-container{
- }
+@import "../../variables/variables.scss";
 
+$marginTop: $base-height+($month-height/2);
+$dayMargin: ($month-height/2);
 
-  .hamburger {
-    position: relative;
-    top: 25px;
-    left: 25px;
-  }
-  
-  .burger-line:hover, .hamburger:hover{
-    background-color:#27e879 !important;
-  }
-  
-  .burger-line {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    border-radius: 15%;
-    margin-bottom: 3px;
-  }
-  
-/**
   .num-date {
-    font-size: 150px;
-    width: 50%;
-    margin: 0 auto;
-    font-weight: 700;
+    font-size: 5em;
+    margin-top:$marginTop;
+    color: $secondary-text;
   }
   
   .day {
-    width: 50%;
-    margin: 0px auto;
+    margin-top: $dayMargin;
     font-size: 30px;
-    position: relative;
-    bottom: 60px;
   }
   
+  /**
   .current-events {
     font-size: 15px;
     position: relative;

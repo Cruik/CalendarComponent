@@ -1,21 +1,4 @@
-$primary: #26c6da;
-$primary-light: #6ff9ff;
-$primary-dark: #0095a8;
-$primary-text: black;
-$primary-text-dark-large: white;
-
-$secondary: #ffa726;
-$secondary-light: #ffd95b;
-$secondary-dark: #c77800;
-$secondary-text: black;
-$secondary-text-dark-large: white;
-
-$grey: #e0e0e0;
-
-$base-height: 70px;
-$weekday-height: 40px;
-$month-height: 70px;
-$year-height: 10px;
+@import "../../variables/variables.scss";
 
 .container-calendar {
   .anotherMonth {

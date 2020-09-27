@@ -12,7 +12,6 @@ export class CalendarInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
 }

@@ -1,16 +1,4 @@
-$primary: #26c6da;
-$primary-light: #6ff9ff;
-$primary-dark: #0095a8;
-$primary-text: black;
-$primary-text-dark-large: white;
-
-$secondary: #fff59d;
-$secondary-light: #ffffcf;
-$secondary-dark: #cbc26d;
-$secondary-text: black;
-$secondary-text-dark-large: black;
-
-$grey: #e0e0e0;
+@import "../../variables/variables.scss";
 
 .calendar {
   padding: 2px;
@@ -18,7 +6,8 @@ $grey: #e0e0e0;
   .calendar-info{
     background-color: $secondary;
     border-right:$secondary-dark 3px solid;
-    width: 100%;;
+        
+    height: auto;
   }
 
   .calendar-container {

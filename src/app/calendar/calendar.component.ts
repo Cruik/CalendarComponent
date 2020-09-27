@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { CalendarEntry } from '../models/CalendarEntry';
 
 @Component({
@@ -12,10 +13,18 @@ export class CalendarComponent implements OnInit {
   selectedEntry:CalendarEntry;
 
   ngOnInit(): void {
-    this.selectedEntry = null;
+    this.selectedEntry = {
+      date: moment(),
+      events : [],
+      color: null,
+      text: 'Schicht',
+      isActualMonth: true
+    };
+    
   }
 
   ShowDayInfo(event){
     this.selectedEntry= event;
+    console.log(event);
   }
 }
