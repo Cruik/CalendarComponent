@@ -1,0 +1,88 @@
+ 
+ .info-container{
+ }
+
+
+  .hamburger {
+    position: relative;
+    top: 25px;
+    left: 25px;
+  }
+  
+  .burger-line:hover, .hamburger:hover{
+    background-color:#27e879 !important;
+  }
+  
+  .burger-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 15%;
+    margin-bottom: 3px;
+  }
+  
+/**
+  .num-date {
+    font-size: 150px;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: 700;
+  }
+  
+  .day {
+    width: 50%;
+    margin: 0px auto;
+    font-size: 30px;
+    position: relative;
+    bottom: 60px;
+  }
+  
+  .current-events {
+    font-size: 15px;
+    position: relative;
+    margin-left: 25px;
+    bottom: 30px;
+  }
+  
+  .posts {
+    text-decoration: underline dotted;
+  }
+  .posts:hover{
+    color:#27e879 !important;
+  }
+  
+  .create-event {
+    font-size: 18px;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 25px;
+  }
+  
+  .event-line {
+    width: 90%;
+  }
+  
+  .add-event {
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    border-radius: 50%;
+    border: solid white 2px;
+    position: relative;
+    bottom: 42px;
+    left: 260px;
+  }
+  
+  .add {
+    font-size: 25px;
+    position: relative;
+    left: 4px;
+    bottom: 10px;
+  }
+  
+  .add:hover, .create-event:hover, .add-event:hover{
+    color:#27e879 !important;
+    border-color: #27e879 !important;
+  }
+  
+**/

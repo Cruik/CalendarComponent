@@ -1,6 +1,6 @@
-import { Component, Input, Output,EventEmitter, OnInit } from '@angular/core';  
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import {CalendarEntry} from '../models/CalendarEntry';
+import { CalendarEntry } from '../models/CalendarEntry';
 
 @Component({
   selector: 'app-calendar-container',
@@ -9,8 +9,8 @@ import {CalendarEntry} from '../models/CalendarEntry';
 })
 export class CalendarContainerComponent implements OnInit {
   @Input() date: Date;
-  @Output() selectedEntry:EventEmitter<CalendarEntry>= new EventEmitter(); 
-  
+  @Output() selectedEntry: EventEmitter<CalendarEntry> = new EventEmitter();
+
   navDate: moment.Moment;
 
   constructor() {
@@ -22,7 +22,7 @@ export class CalendarContainerComponent implements OnInit {
   localeString: string = 'de';
 
   weekDaysHeaderArr: Array<string> = [];
-  calendarEntries: Array<CalendarEntry> = [];
+  calendarEntries:Array<CalendarEntry> = [];
 
   ngOnInit(): void {
     moment.locale(this.localeString);
@@ -40,7 +40,7 @@ export class CalendarContainerComponent implements OnInit {
 
   getCalendarDays() {
     const month = moment(this.navDate).month();
-    const year =  moment(this.navDate).year();
+    const year = moment(this.navDate).year();
 
     const firstDayDate = moment(this.navDate).startOf('month');
     const initialEmptyCell = firstDayDate.weekday();
@@ -53,12 +53,12 @@ export class CalendarContainerComponent implements OnInit {
     this.getPrevMonthCalendarDays(firstDayDate, initialEmptyCell);
 
     for (let i = 1; i <= daysInMonth; i++) {
-      var entry : CalendarEntry = {
-        date: moment(new Date(year,month,i)),
+      var entry: CalendarEntry = {
+        date: moment(new Date(year, month, i)),
         color: null,
         text: null,
         events: [],
-        isActualMonth:true
+        isActualMonth: true
       };
 
       this.calendarEntries.push(entry);
@@ -73,25 +73,21 @@ export class CalendarContainerComponent implements OnInit {
   ) {
     if (startDayPrevMonth > 0) {
       const lastMonthDate = moment(actualMonth).subtract(startDayPrevMonth, 'days');
-      
+
       const month = moment(lastMonthDate).month();
-      const year =  moment(lastMonthDate).year();
+      const year = moment(lastMonthDate).year();
 
       const daysInPrevMonth = lastMonthDate.daysInMonth();
 
-
       for (let i = lastMonthDate.date(); i <= daysInPrevMonth; i++) {
-        console.log(month);
-        console.log(i);
-
-        var entry : CalendarEntry = {
-          date: moment(new Date(year,month,i)),
+        var entry: CalendarEntry = {
+          date: moment(new Date(year, month, i)),
           color: null,
-          text: 'F'+i,
+          text: 'F' + i,
           events: [],
-          isActualMonth:false
+          isActualMonth: false
         };
-  
+
         this.calendarEntries.push(entry);
       }
     }
@@ -106,17 +102,17 @@ export class CalendarContainerComponent implements OnInit {
       const nextMonthDate = moment(actualMonth).add(endDayPrevMonth, 'days');
 
       const month = moment(nextMonthDate).month() + 1;
-      const year =  moment(nextMonthDate).year();
+      const year = moment(nextMonthDate).year();
 
       for (let i = 1; i <= endDayPrevMonth; i++) {
-        var entry : CalendarEntry = {
-          date: moment(new Date(year,month,i)),
+        var entry: CalendarEntry = {
+          date: moment(new Date(year, month, i)),
           color: null,
           text: null,
           events: [],
-          isActualMonth:false
+          isActualMonth: false
         };
-  
+
         this.calendarEntries.push(entry);
       }
     }
@@ -130,12 +126,21 @@ export class CalendarContainerComponent implements OnInit {
 
   nextMonth() {
     this.navDate.add(1, 'months');
-    this.calendarEntries = [];
+    this.calendarEntries =[];
     this.getCalendarDays();
   }
 
-  onDaySelected(calendarEntry:CalendarEntry){
-    console.log(calendarEntry);
+  onDaySelected(calendarEntry: CalendarEntry) {
     this.selectedEntry.emit(calendarEntry);
+  }
+
+  isDayInActualMonth(day: CalendarEntry) {
+    let result = true;
+    
+    if (day != null) {
+      result = !day.isActualMonth;
+    }
+
+    return result;
   }
 }

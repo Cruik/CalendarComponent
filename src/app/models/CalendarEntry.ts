@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
 import { CalenderEvent } from "./CalendarEvent";
 
-export interface CalendarEntry{
+export interface CalendarEntry {
     date: Moment;
     events: CalenderEvent[];
     color: string;

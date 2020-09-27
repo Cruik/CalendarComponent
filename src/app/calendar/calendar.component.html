@@ -1,12 +1,15 @@
 <div class="calendar">
   <div fxLayout="row">
-    <div fxFlex="20" class="calendar-info" fxLayoutAlign="center center">
-        <app-calendar-info [calendarEntry]="selectedEntry" >
-
-        </app-calendar-info>
+    <div fxFlex="30" fxLayoutAlign="center center" class="calendar-info" fxShow fxHide.lt-md>
+      <app-calendar-info class="calendar-info" [calendarEntry]="selectedEntry">
+      </app-calendar-info>
     </div>
-      <app-calendar-container fxLayout="row" class="calendar-container" fxFlex="80" (selectedEntry)="ShowDayInfo($event)">
-
-      </app-calendar-container>
-    </div>
+    <app-calendar-container
+      fxLayout="row"
+      class="calendar-container"
+      fxFlex
+      (selectedEntry)="ShowDayInfo($event)"
+    >
+    </app-calendar-container>
+  </div>
 </div>

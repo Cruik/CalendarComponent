@@ -1,8 +1,36 @@
-<div *ngIf="calendarEntry != null">
-  <div>
-    {{ calendarEntry.date | amDateFormat: "Do" }}
-  </div>
-  <div class="day-text">
-    {{ calendarEntry.text }}
+<div class="info-container" fxLayout="row layout-wrap" fxFlex="auto">
+<div class="hamburger" fxLayoutAlign="start start"
+fxFlex="auto">
+  <div class="burger-line"></div>
+  <!-- burger-line -->
+  <div class="burger-line"></div>
+  <!-- burger-line -->
+  <div class="burger-line"></div>
+  <!-- burger-line -->
+</div>
+  <div *ngIf="calendarEntry != null">
+   
+    <!-- hamburger -->
+    <div></div>
+    <div class="num-date">27</div>
+    <!--num-date -->
+    <div class="day">
+      {{ calendarEntry.date | amDateFormat: "Do" }}
+    </div>
+    <!--day -->
+    <div class="current-events">
+      Current Events
+      <br />
+      <ul>
+        <li>{{ calendarEntry.text }}</li>
+      </ul>
+      <span class="posts">See post events</span>
+    </div>
+    <!--current-events -->
+
+    <div class="create-event">Create an Event</div>
+    <!-- create-event -->
+    <hr class="event-line" />
+    <div class="add-event"><span class="add">+</span></div>
   </div>
 </div>

@@ -1,12 +1,24 @@
 <div class="container-calendar" fxLayout="row layout-wrap" fxFlex="auto">
-  <div class="month control" fxLayoutAlign="center center" fxFlex="20" (click)="prevMonth()">
-    <span><</span>
+  <div
+    class="month control"
+    fxLayoutAlign="end center"
+    fxFlex="20"
+    (click)="prevMonth()"
+  >
+    <span class="material-icons"> chevron_left </span>
   </div>
-  <div class="month" fxLayoutAlign="center center" fxFlex="60">
-    {{ navDate.format("MMMM") }}
+  <div class="month month-name" fxLayoutAlign="center end" fxFlex="60">
+    <h2>{{ navDate.format("MMMM") }}</h2>
   </div>
-  <div class="month control" fxLayoutAlign="center center" fxFlex="20" (click)="nextMonth()">
-    <span >></span>
+  <div
+    class="month control"
+    fxLayoutAlign="start center"
+    fxFlex="20"
+    (click)="nextMonth()">
+    <span class="material-icons"> chevron_right </span>
+  </div>
+  <div class="month year" fxLayoutAlign="center center" fxFlex="100">
+    {{ navDate.format("yyyy") }}
   </div>
   <div
     *ngFor="let weekday of weekDaysHeaderArr"
@@ -16,19 +28,35 @@
   >
     {{ weekday }}
   </div>
-  <div
-    *ngFor="let day of calendarEntries"
-    class="day"
-    fxFlex="14.285%"
-    fxLayoutAlign="center center"
-    [ngClass]="{'anotherMonth' : !day.isActualMonth}"
-  >
-  <div class="" fxLayout="row layout-wrap" fxFlex="auto" (click)="onDaySelected(day)">
-    <div fxFill fxLayoutAlign="center center">
-      {{ day.date  | amDateFormat:'Do'}}
-    </div>
-    <div *ngIf="day.text != null" fxFill fxLayoutAlign="center center" class="day-text">
-      {{day.text}}
+  <div *ngFor="let day of calendarEntries" class="day"
+      [ngClass]="{ anotherMonth: isDayInActualMonth(day) }"
+      fxFlex="14.285%"
+      fxLayoutAlign="center center"
+    >
+      <div
+        *ngIf="day != null; else elseBlock"
+        fxLayout="row layout-wrap"
+        fxFlex="auto"
+        (click)="onDaySelected(day)"
+      >
+        <div fxFill fxLayoutAlign="center center">
+          {{ day.date | amDateFormat: "Do" }}
+        </div>
+        <div
+          fxFill
+          fxLayoutAlign="center center"
+          class="day-text"
+        >
+          {{ day.isActualMonth }}
+        </div>
     </div>
   </div>
 </div>
+
+<ng-template #elseBlock>
+  <div fxLayout="row layout-wrap" fxFlex="auto">
+    <div fxFill>
+      Test
+    </div>
+  </div>
+</ng-template>

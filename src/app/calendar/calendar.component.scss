@@ -1,8 +1,29 @@
-.calendar {
-  border: 1px solid black;
-  .calendar-container {
-    border: 1px solid black;
+$primary: #26c6da;
+$primary-light: #6ff9ff;
+$primary-dark: #0095a8;
+$primary-text: black;
+$primary-text-dark-large: white;
 
+$secondary: #fff59d;
+$secondary-light: #ffffcf;
+$secondary-dark: #cbc26d;
+$secondary-text: black;
+$secondary-text-dark-large: black;
+
+$grey: #e0e0e0;
+
+.calendar {
+  padding: 2px;
+
+  .calendar-info{
+    background-color: $secondary;
+    border-right:$secondary-dark 3px solid;
+    width: 100%;;
+  }
+
+  .calendar-container {
     height: auto;
   }
+
+  
 }

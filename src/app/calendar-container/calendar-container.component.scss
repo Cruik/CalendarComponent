@@ -1,46 +1,65 @@
-/* HEX */
-/* Kontraste */
-$myColor-1: #246e66; // Deep Cerulean
-$myColor-2: #005f70; // Blue Stone
-$myColor-3: #68a29c; // Onahau
-$myColor-4: #80ebff; // Anakiwa
-$myColor-5: #ad3841; // Blaze Orange
-$myColor-6: #b18739; // Rose of Sharon
-$myColor-7: #ffdbbf; // Negroni
-$myColor-8: #ffb780; // Macaroni and Cheese
+$primary: #26c6da;
+$primary-light: #6ff9ff;
+$primary-dark: #0095a8;
+$primary-text: black;
+$primary-text-dark-large: white;
+
+$secondary: #ffa726;
+$secondary-light: #ffd95b;
+$secondary-dark: #c77800;
+$secondary-text: black;
+$secondary-text-dark-large: white;
+
+$grey: #e0e0e0;
 
 $base-height: 70px;
-$month-height: 100px;
+$weekday-height: 40px;
+$month-height: 70px;
+$year-height: 10px;
 
 .container-calendar {
   .anotherMonth {
-    background-color: grey;
+    background-color: $grey;
   }
 
   .month {
     height: $month-height;
-    background-color: $myColor-1;
+    color: $primary-text-dark-large;
+    background-color: $primary-dark;
   }
+
   .control {
-    color: $myColor-3;
+    color: $primary-text-dark-large;
     cursor: pointer;
+
+    .material-icons{
+      font-size: 3em;
+    }
   }
+
+  .year {
+    height: $year-height;
+    font-weight: bold;
+    font-size: 0.8em;
+  }
+
   .weekday {
     height: $base-height;
-    background-color: $myColor-4;
-    border: 1px $myColor-2 solid;
+    background-color: $primary-dark;
+    color: $primary-text-dark-large;
   }
 
-  .day:hover{
+  .day:hover {
     opacity: 0.6;
-    background-color: grey;
+    color: $primary-text;
+    background-color: $grey;
   }
+
   .day {
     height: $base-height;
-    border: 1px $myColor-6 solid;
     cursor: pointer;
 
-    .day-text{
+    .day-text {
       font-size: 0.6em;
     }
   }
