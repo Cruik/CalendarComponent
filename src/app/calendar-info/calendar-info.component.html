@@ -6,6 +6,16 @@
   <div class="day" fxLayoutAlign="center center" fxFlex="100">
     {{ calendarEntry.date | amDateFormat: "dddd" }}
   </div>
+  <div class="day-info" fxLayoutAlign="center center" fxFlex="100">
+    {{ calendarEntry.text }}
+  </div>
+  <h2>Events:</h2>
+  <div class="event-info" fxLayoutAlign="start center" fxFlex="100" *ngFor="let event of calendarEntry.events">
+    {{ event.datetime  | amDateFormat: "h:mm" }}
+    {{event.name}}
+    
+  </div>
+  
 </div>
 
 <!--

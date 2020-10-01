@@ -25,6 +25,15 @@ export class CalendarComponent implements OnInit {
 
   ShowDayInfo(event){
     this.selectedEntry= event;
-    console.log(event);
+    this.selectedEntry.events.push({
+      id:0,
+      name:"test" + event.date.get('date'),
+      place: "",
+      color: "",
+      text : "",
+      datetime: new Date(2020,event.date.month(),event.date.get('date'))
+    })
+    this.selectedEntry.text = 'Schicht';
+    console.log();
   }
 }

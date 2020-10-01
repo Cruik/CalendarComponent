@@ -4,4 +4,5 @@ export interface CalenderEvent{
     color: string;
     text: string;
     place:string;
+    datetime:Date;
 }
