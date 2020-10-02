@@ -32,8 +32,9 @@ export class CalendarComponent implements OnInit {
       color: "",
       text : "",
       datetime: new Date(2020,event.date.month(),event.date.get('date'))
-    })
-    this.selectedEntry.text = 'Schicht';
+    });
+    
+    this.selectedEntry.text = 'F3';
     console.log();
   }
 }

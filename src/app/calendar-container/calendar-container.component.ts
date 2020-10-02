@@ -81,7 +81,7 @@ export class CalendarContainerComponent implements OnInit {
         var entry: CalendarEntry = {
           date: moment(new Date(year, month, i)),
           color: null,
-          text: 'F' + i,
+          text: '',
           events: [],
           isActualMonth: false
         };
