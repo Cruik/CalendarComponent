@@ -2,7 +2,7 @@
 
 .container-calendar {
   .anotherMonth {
-    background-color: $grey;
+    opacity: 0.5;
   }
 
   .month {
@@ -15,7 +15,7 @@
     color: $primary-text-dark-large;
     cursor: pointer;
 
-    .material-icons{
+    .material-icons {
       font-size: 3em;
     }
   }
@@ -41,7 +41,9 @@
   .day {
     height: $base-height;
     cursor: pointer;
-
+    .day-container {
+      margin-top: 10px;
+    }
     .day-text {
       font-size: 0.6em;
     }

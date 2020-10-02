@@ -33,16 +33,21 @@
     *ngFor="let day of calendarEntries"
     class="day"
     [ngClass]="{ anotherMonth: isDayInActualMonth(day) }"
+    [ngStyle]="{'background-color':  getDayBackgroundColor(day)}"
     fxFlex="14.285%"
-    fxLayoutAlign="center center"
+    fxLayoutAlign="center start"
   >
     <div
       *ngIf="day != null; else elseBlock"
+      [ngClass]="{ 'day-container': !isDayInActualMonth(day) }"
       fxLayout="row layout-wrap"
       fxFlex="auto"
       (click)="onDaySelected(day)"
     >
-      <div fxFill fxLayoutAlign="center center">
+    <div fxFlex="100" fxLayoutAlign="center center"*ngIf="!day.isActualMonth">
+      {{ day.date.format("MMM") }}
+    </div>
+      <div fxFlex="100" fxLayoutAlign="center center">
         {{ day.date | amDateFormat: "Do" }}
       </div>
       <div fxFill fxLayoutAlign="center center" class="day-text">

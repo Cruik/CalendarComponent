@@ -105,7 +105,7 @@ export class CalendarContainerComponent implements OnInit {
       for (let i = 1; i <= endDayPrevMonth; i++) {
         var entry: CalendarEntry = {
           date: moment(new Date(year, month, i)),
-          color: null,
+          color: 'red',
           text: null,
           events: [],
           isActualMonth: false
@@ -140,5 +140,15 @@ export class CalendarContainerComponent implements OnInit {
     }
 
     return result;
+  }
+
+  getDayBackgroundColor(day:CalendarEntry){
+    let color = 'white';
+
+    if(day.color!= null && day.color.length > 0){
+      color = day.color;
+    }
+
+    return color;
   }
 }
