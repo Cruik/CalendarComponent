@@ -8,19 +8,37 @@ import { CalendarEntry } from '../models/CalendarEntry';
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  selectedEntry:CalendarEntry;
+  selectedEntry: CalendarEntry;
 
   ngOnInit(): void {
     this.selectedEntry = {
       date: moment(),
-      events : [],
+      events: [],
       color: null,
       text: 'Schicht',
-      isActualMonth: true
+      isActualMonth: true,
     };
-    
+
+    this.selectedEntry.events.push({
+      id: 0,
+      name: 'Test 1',
+      place: '',
+      color: '',
+      text: '',
+      start: new Date()
+    });
+    this.selectedEntry.events.push({
+      id: 1,
+      name: 'Test 2',
+      place: '',
+      color: '',
+      text: '',
+      start: new Date()
+    });
+
+
   }
 
   ShowDayInfo(event){

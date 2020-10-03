@@ -19,7 +19,6 @@ export class CalendarContainerComponent implements OnInit {
     }
   }
 
-
   weekDaysHeaderArr: Array<string> = [];
   calendarEntries:Array<CalendarEntry> = [];
 
@@ -54,7 +53,7 @@ export class CalendarContainerComponent implements OnInit {
       var entry: CalendarEntry = {
         date: moment(new Date(year, month, i)),
         color: null,
-        text: null,
+        text: 'Schicht: F1',
         events: [],
         isActualMonth: true
       };
