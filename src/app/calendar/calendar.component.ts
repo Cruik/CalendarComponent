@@ -27,7 +27,7 @@ export class CalendarComponent implements OnInit {
       place: '',
       color: '',
       text: '',
-      start: new Date()
+      datetime: new Date()
     });
     this.selectedEntry.events.push({
       id: 1,
@@ -35,7 +35,7 @@ export class CalendarComponent implements OnInit {
       place: '',
       color: '',
       text: '',
-      start: new Date()
+      datetime: new Date()
     });
 
 
