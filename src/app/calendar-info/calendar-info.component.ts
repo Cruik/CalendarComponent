@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CalendarEntry } from '../models/CalendarEntry';
+import { EntryServiceService } from '../services/entry-service.service';
 
 @Component({
   selector: 'app-calendar-info',
@@ -9,9 +10,17 @@ import { CalendarEntry } from '../models/CalendarEntry';
 export class CalendarInfoComponent implements OnInit {
   @Input() calendarEntry: CalendarEntry;
 
-  constructor() { }
+  constructor( private entryService: EntryServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  onClickToday(){
+
+  }
+
+  onClickClear(){
+    this.entryService.Clear();
   }
 
 }

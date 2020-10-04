@@ -38,6 +38,9 @@
     background-color: $grey;
   }
 
+  .selected{
+    color:red;
+  }
   .day {
     height: $base-height;
     cursor: pointer;

@@ -11,6 +11,7 @@ export class CalendarComponent implements OnInit {
   constructor() { }
 
   selectedEntry: CalendarEntry;
+  
 
   ngOnInit(): void {
     this.selectedEntry = {
@@ -29,6 +30,7 @@ export class CalendarComponent implements OnInit {
       text: '',
       datetime: new Date()
     });
+    
     this.selectedEntry.events.push({
       id: 1,
       name: 'Test 2',
@@ -42,17 +44,6 @@ export class CalendarComponent implements OnInit {
   }
 
   ShowDayInfo(event){
-    this.selectedEntry= event;
-    this.selectedEntry.events.push({
-      id:0,
-      name:"test" + event.date.get('date'),
-      place: "",
-      color: "",
-      text : "",
-      datetime: new Date(2020,event.date.month(),event.date.get('date'))
-    });
-    
-    this.selectedEntry.text = 'F3';
-    console.log();
+    this.selectedEntry = event;
   }
 }

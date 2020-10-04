@@ -4,15 +4,14 @@
   padding: 2px;
 
   .calendar-info{
-    background-color: $secondary;
-    border-right:$secondary-dark 3px solid;
+    background-color: $secondary-dark;
+    
+    border-right: $secondary 3px solid;
         
     height: auto;
   }
 
   .calendar-container {
     height: auto;
-  }
-
-  
+  }  
 }

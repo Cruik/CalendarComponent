@@ -3,6 +3,22 @@
 $marginTop: $base-height+($month-height/2);
 $dayMargin: ($month-height/2);
 
+$maxHeight: $base-height*3.2;
+
+.calendar-info-container{
+
+  max-height: $maxHeight;
+
+  h2 {
+    margin-bottom:0;
+  }
+
+  .event-info{
+    overflow: auto;
+    max-height: $maxHeight;
+    width: 100%;
+  }
+
   .num-date {
     font-size: 5em;
     margin-top:$marginTop;
@@ -12,7 +28,8 @@ $dayMargin: ($month-height/2);
   .day {
     margin-top: $dayMargin;
     font-size: 30px;
-  }
+  }  
+}
   
   /**
   .current-events {

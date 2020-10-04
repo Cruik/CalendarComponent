@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { MomentPipe } from './tools/momentPipe';
 import * as moment from 'moment';
 
+import {EntryServiceService} from 'src/app/services/entry-service.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,7 @@ import * as moment from 'moment';
     MomentModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [EntryServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

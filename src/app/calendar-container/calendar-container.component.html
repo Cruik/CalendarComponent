@@ -39,7 +39,8 @@
   >
     <div
       *ngIf="day != null; else elseBlock"
-      [ngClass]="{ 'day-container': !isDayInActualMonth(day) }"
+      [ngClass]="{ 'day-container': !isDayInActualMonth(day),
+                  'selected' : isDaySelected(day) }"
       fxLayout="row layout-wrap"
       fxFlex="auto"
       (click)="onDaySelected(day)"

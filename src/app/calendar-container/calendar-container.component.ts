@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { CalendarEntry } from '../models/CalendarEntry';
+import { EntryServiceService } from '../services/entry-service.service';
 
 @Component({
   selector: 'app-calendar-container',
@@ -12,8 +13,9 @@ export class CalendarContainerComponent implements OnInit {
   @Output() selectedEntry: EventEmitter<CalendarEntry> = new EventEmitter();
 
   navDate: moment.Moment;
-
-  constructor() {
+  selectedEntries: Map<string, moment.Moment>;
+  
+  constructor( private entryService: EntryServiceService) { 
     if (this.date === undefined) {
       this.date = new Date();
     }
@@ -26,6 +28,7 @@ export class CalendarContainerComponent implements OnInit {
     this.navDate = moment(this.date);
     this.createWeekdayHeader();
     this.getCalendarDays();
+    this.getSelectedDates();
   }
 
   createWeekdayHeader() {
@@ -33,6 +36,20 @@ export class CalendarContainerComponent implements OnInit {
     weekDaysArr.forEach((day) =>
       this.weekDaysHeaderArr.push(moment().weekday(day).format('ddd'))
     );
+  }
+
+  getSelectedDates(){
+    this.entryService.GetSelectedEntries().subscribe(e => this.selectedEntries = e);
+  }
+
+  isDaySelected(day:CalendarEntry){
+    let key = day.date.format('DD.MM.yyyy');
+    let isSelected = false;
+    if(this.selectedEntries.has(key)){
+      isSelected = true;
+    }
+
+    return isSelected;
   }
 
   getCalendarDays() {
@@ -128,6 +145,7 @@ export class CalendarContainerComponent implements OnInit {
   }
 
   onDaySelected(calendarEntry: CalendarEntry) {
+    this.entryService.AddSelectedEntry(calendarEntry.date);
     this.selectedEntry.emit(calendarEntry);
   }
 

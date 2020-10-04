@@ -1,4 +1,4 @@
-<div fxLayout="row layout-wrap" fxFlex="auto">
+<div class="calendar-info-container" fxLayout="row layout-wrap" fxFlex="auto">
   <div class="num-date" fxLayoutAlign="center center" fxFlex="100">
     {{ calendarEntry.date | amDateFormat: "D" }}
   </div>
@@ -10,12 +10,24 @@
     {{ calendarEntry.text }}
   </div>
   <h2>Events:</h2>
-  <div class="event-info" fxLayoutAlign="start center" fxFlex="100" *ngFor="let event of calendarEntry.events">
-    {{ event.datetime  | amDateFormat: "h:mm" }}
-    {{event.name}}
+  <div class="event-info-list" 
+  fxLayoutAlign="start center"
+  fxFlex="100">
+  <ul class="event-info">
+    <li *ngFor="let event of calendarEntry.events">
+      {{ event.datetime | amDateFormat: "h:mm" }}
+      {{ event.name }}
+    </li>
+
+  </ul>
     
-  </div>
+     
   
+  </div>
+  <div class="action-buttons" fxLayoutAlign="center end" fxFlex="100">
+<button (click)="onClickToday()">today</button>
+<button (click)="onClickClear()">clear</button>
+  </div>
 </div>
 
 <!--
